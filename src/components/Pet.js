@@ -1,16 +1,6 @@
 import React from 'react'
 
-export default class Pet extends React.Component {
-  isItAdopted = () => {
-    if (this.props.pet.isAdopted == true){
-      return <button className="ui disabled button">Already adopted</button>
-    }
-    else {
-      return <button
-        onClick={() => this.props.onAdoptPet(this.props.pet.id)}
-        className="ui primary button">
-        Adopt pet
-        </button>}}
+class Pet extends React.Component {
   render() {
     return (
       <div className="card">
@@ -18,6 +8,7 @@ export default class Pet extends React.Component {
           <a className="header">
             {this.props.pet.name}{' '}
             {this.props.pet.gender === 'female' ? '♀' : '♂'}
+            PET NAME
           </a>
           <div className="meta">
             <span className="date">{this.props.pet.type}</span>
@@ -28,9 +19,15 @@ export default class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
-          {this.isItAdopted()}
-          <button className="ui disabled button">Already adopted</button>
-          <button className="ui primary button">Adopt pet</button>
+          {this.props.pet.isAdopted ? (
+            <button className="ui disabled button">Already adopted</button>
+          ) : (
+            <button
+              onClick={() => this.props.onAdoptPet(this.props.pet.id)}
+              className="ui primary button">
+              Adopt pet
+            </button>
+          )}
         </div>
       </div>
     )

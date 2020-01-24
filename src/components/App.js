@@ -1,17 +1,17 @@
-import React from 'react'
-import Filters from './Filters'
-import PetBrowser from './PetBrowser'
+import React from 'react';
+import Filters from './Filters';
+import PetBrowser from './PetBrowser';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       pets: [],
       filters: {
         type: 'all'
       }
-    }
+    };
   }
   fetchPets = () => {
     let endpoint = '/api/pets';
@@ -52,4 +52,4 @@ export default class App extends React.Component {
   }
 }
 
-export default App
+export default App;
